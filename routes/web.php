@@ -19,6 +19,14 @@ Route::group(["middleware" => ['auth:sanctum']], function () {
     Route::get('/task/create', [TaskController::class, 'create'])->name('task.new');
     // Create Task
     Route::post('/task/create', [TaskController::class, 'store'])->name('task.create');
+    // Complete Task
+    Route::patch('/task/{id}', [TaskController::class, 'complete'])->name('task.complete');
+    // Edit Task
+    Route::get('/task/{id}/edit', [TaskController::class, 'edit'])->name('task.edit');
+    // Update Task
+    Route::patch('/task/{id}', [TaskController::class, 'update'])->name('task.update');
+    // Delete Task
+    Route::delete('/task/{id}', [TaskController::class, 'delete'])->name('task.delete');
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

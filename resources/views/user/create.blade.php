@@ -12,16 +12,21 @@
         </div>
     @endif
 
-    <form action={{ route('task.create') }} method="POST">
+    <form action={{ route('task.create') }} method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="title">Task title</label>
-            <input type="text" class="form-control" name="title" />
+            <input type="text" class="form-control" name="title" id="title" required />
         </div>
 
         <div class="form-group my-3">
             <label for="description">Task description</label>
-            <textarea class="form-control" name="description" id="description"></textarea>
+            <textarea class="form-control" name="description" id="description" required></textarea>
+        </div>
+
+        <div class="form-group my-3">
+            <label for="image">Task image</label>
+            <input type="file" class="form-control" name="image" id="image" accept="image/*" />
         </div>
 
         <div class="form-group mt-3">
