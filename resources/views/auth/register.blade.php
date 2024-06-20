@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('content')
-    <div class="d-flex justify-content-center mt-5">
+    <div class="d-flex justify-content-center row align-items-center min-vh-100">
         <div class="col-lg-4">
             <div class="card ">
                 <div class="card-header">

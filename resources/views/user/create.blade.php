@@ -26,11 +26,20 @@
 
         <div class="form-group my-3">
             <label for="image">Task image</label>
-            <input type="file" class="form-control" name="image" id="image" accept="image/*" />
+            <input type="file" class="form-control" name="image" id="image" required accept="image/*" />
         </div>
 
         <div class="form-group mt-3">
             <button type="submit" class="btn btn-primary">Create Task</button>
+            <button type="button" class="btn btn-danger" id="cancel-button">Cancel</button>
         </div>
     </form>
+
+    <script>
+        document.getElementById('cancel-button').addEventListener('click', function() {
+            if (confirm('Are you sure you want to cancel the update? Any unsaved changes will be lost.')) {
+                window.location.href = '{{ route('home') }}';
+            }
+        });
+    </script>
 @endsection

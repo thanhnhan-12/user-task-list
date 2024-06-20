@@ -14,7 +14,7 @@
         @include('layout.nav')
     @endauth
 
-    <div class="container py-4">
+    <div class="container">
         @yield('content')
     </div>
 

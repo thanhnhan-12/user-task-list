@@ -20,7 +20,7 @@ Route::group(["middleware" => ['auth:sanctum']], function () {
     // Create Task
     Route::post('/task/create', [TaskController::class, 'store'])->name('task.create');
     // Complete Task
-    Route::patch('/task/{id}', [TaskController::class, 'complete'])->name('task.complete');
+    Route::post('/task/{id}', [TaskController::class, 'complete'])->name('task.complete');
     // Edit Task
     Route::get('/task/{id}/edit', [TaskController::class, 'edit'])->name('task.edit');
     // Update Task

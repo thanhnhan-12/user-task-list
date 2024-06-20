@@ -19,11 +19,14 @@
         <a href={{ route('task.new') }} class="btn btn-info my-4">New Task</a>
     </div>
     <hr>
-    @foreach ($tasks as $task)
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach ($tasks as $task)
             <div class="col">
                 @include('user.card')
             </div>
-        </div>
-    @endforeach
+        @endforeach
+    </div>
+
+    <div class="" style="margin-top: 20px;"> {{ $tasks->links() }} </div>
 @endsection

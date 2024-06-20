@@ -12,17 +12,28 @@
         </div>
     @endif
 
-    <form action={{ route('task.update', $task->id) }} method="POST">
+    <form action={{ route('task.update', $task->id) }} method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="form-group">
             <label for="title">Task title</label>
-            <input type="text" class="form-control" name="title" id="title" value={{ $task->title }} required />
+            <input type="text" class="form-control" name="title" id="title" value="{{ $task->title }}" required />
         </div>
 
         <div class="form-group my-3">
             <label for="description">Task description</label>
             <textarea class="form-control" name="description" id="description" required>{{ $task->description }}</textarea>
+        </div>
+
+        <div class="form-group my-3">
+            <label for="image">Task image</label>
+            @if ($task->image)
+                <div class="mb-2">
+                    <img src="{{ asset('storage/' . $task->image) }}" alt="Current Image" class="img-thumbnail"
+                        style="max-height: 150px;">
+                </div>
+            @endif
+            <input type="file" class="form-control" name="image" id="image" accept="image/*" />
         </div>
 
         <div class="form-group mt-3">
