@@ -64,3 +64,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Note for clone project laravel when run command
+
+1. composer install
+
+2. copy .env.example .env
+
+3. php artisan key:generate (to set key for project when clone)
+
+4. Note: php artisan storage:link - Used when create function upload image

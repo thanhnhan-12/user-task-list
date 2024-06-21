@@ -54,7 +54,7 @@ class TaskController extends Controller
             if ($validateTask->fails()) {
                 return redirect()->back()->withErrors($validateTask)->withInput();
             }
-
+            // php artisan storage:link
             $imagePath = null;
 
             if ($request->hasFile('image')) {
