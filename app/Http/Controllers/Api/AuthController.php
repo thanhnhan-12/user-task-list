@@ -42,11 +42,13 @@ class AuthController extends Controller
 
             $user = User::Where('email', $request->email)->first();
 
-            return response()->json([
+            response()->json([
                 'status' => true,
                 'message' => 'Login Successfully',
                 'token' => $user->createToken("API TOKEN")->plainTextToken
-            ], 200)->route('login')->with('success', 'Login Successfully');
+            ], 200);
+
+            return redirect()->route('home')->with('success', 'Login Successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
@@ -80,11 +82,13 @@ class AuthController extends Controller
                 'password' => bcrypt($request->password)
             ]);
 
-            return response()->json([
+            response()->json([
                 'status' => true,
                 'message' => 'Register Successfully',
                 'token' => $user->createToken("API TOKEN")->plainTextToken
-            ], 200)->route('login')->with('success', 'Register Successfully');
+            ], 200);
+
+            return redirect()->route('login')->with('success', 'Register Successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
